@@ -1,2 +1,8 @@
 @import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+body {
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+}
+
 

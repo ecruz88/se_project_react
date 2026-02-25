@@ -7,9 +7,10 @@ const currentDate = new Date().toLocaleString('default', { month: 'long', day: '
 
   return (
   <header className="header">
-    <img className="header__logo" src={logo}/>
-    <p className="header__date-and-location">{currentDate}, {weatherData.city} </p>
-    <button OnClick={handleAddClick} 
+    <img className="header__logo" src={logo} alt="App logo"/>
+    <p className="header__date-and-location">{currentDate}, {weatherData?.city || "Loading..."}
+ </p>
+    <button onClick={handleAddClick} 
     type="button" 
     className="header__add-clothes-btn"
     >
