@@ -1,20 +1,19 @@
 .footer {
- width: 1358px;
-height: 20px;
-top: 1040px;
-left: 40px;
-color: #000000;
-font-size: 16px;
-font-family: "Cabinet Grotesk", Arial, sans-serif;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  max-width: 1360px;
+  width: 100%;
+  margin: auto auto 0;
+  padding: 0 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  font-size: 16px;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-weight: 500;
 }
 
-.footer__text {
-  margin: 0;
-}
-
+.footer__text,
 .footer__year {
   margin: 0;
 }

@@ -1,38 +1,71 @@
+import { useEffect } from "react";
 import "./ModalWithForm.css";
- 
-function ModalWithForm({ children, buttonText, title, isOpen, onClose }) {
-    return (
-        <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
-            
-            <div className="modal__content">
 
-                <h2 className="modal__title">{title}</h2>
+function ModalWithForm({
+  children,
+  buttonText,
+  title,
+  isOpen,
+  onClose,
+  onSubmit,
+}) {
 
-                <button
-                    onClick={onClose}
-                    type="button"
-                    className="modal__close"
-                >
-                    CLOSE
-                </button>
+  useEffect(() => {
+    if (!isOpen) return;
 
-                <form className="modal__form">
-                    
-                    {children}
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
 
-                    <button
-                        type="submit"
-                        className="modal__submit"
-                    >
-                        {buttonText}
-                    </button>
+    document.addEventListener("keydown", handleEscClose);
+    document.body.style.overflow = "hidden";
 
-                </form>
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
 
-            </div>
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("modal")) {
+      onClose();
+    }
+  };
 
-        </div>
-    );
+  return (
+    <div
+      className={`modal ${isOpen ? "modal_opened" : ""}`}
+      onMouseDown={handleOverlayClick}
+    >
+      <div className="modal__content">
+
+        <button
+          type="button"
+          className="modal__close"
+          onClick={onClose}
+        />
+
+        <h2 className="modal__title">{title}</h2>
+
+        <form
+          className="modal__form"
+          onSubmit={onSubmit}
+        >
+          {children}
+
+          <button
+            type="submit"
+            className="modal__submit"
+          >
+            {buttonText}
+          </button>
+        </form>
+
+      </div>
+    </div>
+  );
 }
- 
+
 export default ModalWithForm;

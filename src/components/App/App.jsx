@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import AddItemModal from "../AddItemModal/AddItemModal";
 
 import { defaultClothingItems } from "../../utils/constants";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -68,13 +68,11 @@ function App() {
 
       <Footer />
 
-      <ModalWithForm
-        title="New garment"
-        name="add-garment"
-        buttonText="Add garment"
-        isOpen={activeModal === "add-garment"}
-        onClose={closeActiveModal}
-      />
+      <AddItemModal
+  isOpen={activeModal === "add-garment"}
+  onClose={closeActiveModal}
+  onAddItem={(item) => setClothingItems([item, ...clothingItems])}
+/>
 
       <ItemModal
   activeModal={activeModal}
