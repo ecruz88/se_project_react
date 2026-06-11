@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import ItemModal from "../ItemModal/ItemModal";
 
 import { defaultClothingItems } from "../../utils/constants";
 import { coordinates, APIkey } from "../../utils/constants";

@@ -1,0 +1,12 @@
+.modal__image {
+  width: 100%;
+}
+
+.modal__content_type_image {
+  padding: 0;
+  overflow: hidden;
+}
+
+.modal__footer {
+  padding: 28px;
+}

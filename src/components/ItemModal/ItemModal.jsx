@@ -10,7 +10,7 @@ function ItemModal({ activeModal, onClose, card }) {
                     type="button"
                     className="modal__close"
                 >
-                    CLOSE
+                
                 </button>
 
                 <img

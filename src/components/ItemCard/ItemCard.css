@@ -4,6 +4,8 @@
  position: relative;
  display: flex;
  justify-content: center;
+ overflow: hidden;
+border: 1px solid #00000030;
 }
 
 .card__name {
